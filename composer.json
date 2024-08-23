@@ -1,0 +1,51 @@
+{
+    "name": "sdksio/spotify-api-sdk",
+    "description": "You can use Spotify's Web API to discover music and podcasts, manage your Spotify library, control audio playback, and much more. Browse our available Web API endpoints using the sidebar at left, or via the navigation bar on top of this page on smaller screens.",
+    "type": "library",
+    "keywords": [
+        "Spotify",
+        "Apimatic",
+        "SDK",
+        "API"
+    ],
+    "homepage": "https://spotify-poc.pages.dev/",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "developer sdksio",
+            "email": "developer+sdksio@apimatic.io"
+        }
+    ],
+    "support": {},
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "apimatic/unirest-php": "^4.0.0",
+        "apimatic/core-interfaces": "~0.1.5",
+        "apimatic/core": "~0.3.11"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "5.4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SpotifyWebAPILib\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SpotifyWebAPILib\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint-src": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "analyze": "phan --allow-polyfill-parser -p",
+        "lint": [
+            "@lint-src"
+        ]
+    }
+}

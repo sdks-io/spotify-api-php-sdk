@@ -1,0 +1,73 @@
+
+# Artist Discography Album Object
+
+## Structure
+
+`ArtistDiscographyAlbumObject`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `albumType` | [`string(AlbumTypeEnum)`](../../doc/models/album-type-enum.md) | Required | The type of the album. | getAlbumType(): string | setAlbumType(string albumType): void |
+| `totalTracks` | `int` | Required | The number of tracks in the album. | getTotalTracks(): int | setTotalTracks(int totalTracks): void |
+| `availableMarkets` | `string[]` | Required | The markets in which the album is available: [ISO 3166-1 alpha-2 country codes](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). _**NOTE**: an album is considered available in a market when at least 1 of its tracks is available in that market._ | getAvailableMarkets(): array | setAvailableMarkets(array availableMarkets): void |
+| `externalUrls` | [`ExternalUrlObject`](../../doc/models/external-url-object.md) | Required | Known external URLs for this album. | getExternalUrls(): ExternalUrlObject | setExternalUrls(ExternalUrlObject externalUrls): void |
+| `href` | `string` | Required | A link to the Web API endpoint providing full details of the album. | getHref(): string | setHref(string href): void |
+| `id` | `string` | Required | The [Spotify ID](/documentation/web-api/concepts/spotify-uris-ids) for the album. | getId(): string | setId(string id): void |
+| `images` | [`ImageObject[]`](../../doc/models/image-object.md) | Required | The cover art for the album in various sizes, widest first. | getImages(): array | setImages(array images): void |
+| `name` | `string` | Required | The name of the album. In case of an album takedown, the value may be an empty string. | getName(): string | setName(string name): void |
+| `releaseDate` | `string` | Required | The date the album was first released. | getReleaseDate(): string | setReleaseDate(string releaseDate): void |
+| `releaseDatePrecision` | [`string(ReleaseDatePrecisionEnum)`](../../doc/models/release-date-precision-enum.md) | Required | The precision with which `release_date` value is known. | getReleaseDatePrecision(): string | setReleaseDatePrecision(string releaseDatePrecision): void |
+| `restrictions` | [`?AlbumRestrictionObject`](../../doc/models/album-restriction-object.md) | Optional | Included in the response when a content restriction is applied. | getRestrictions(): ?AlbumRestrictionObject | setRestrictions(?AlbumRestrictionObject restrictions): void |
+| `type` | [`string(Type2Enum)`](../../doc/models/type-2-enum.md) | Required | The object type. | getType(): string | setType(string type): void |
+| `uri` | `string` | Required | The [Spotify URI](/documentation/web-api/concepts/spotify-uris-ids) for the album. | getUri(): string | setUri(string uri): void |
+| `artists` | [`SimplifiedArtistObject[]`](../../doc/models/simplified-artist-object.md) | Required | The artists of the album. Each artist object includes a link in `href` to more detailed information about the artist. | getArtists(): array | setArtists(array artists): void |
+| `albumGroup` | [`string(AlbumGroupEnum)`](../../doc/models/album-group-enum.md) | Required | This field describes the relationship between the artist and the album. | getAlbumGroup(): string | setAlbumGroup(string albumGroup): void |
+
+## Example (as JSON)
+
+```json
+{
+  "album_type": "compilation",
+  "total_tracks": 9,
+  "available_markets": [
+    "CA",
+    "BR",
+    "IT"
+  ],
+  "external_urls": {
+    "spotify": "spotify6"
+  },
+  "href": "href4",
+  "id": "2up3OPMp9Tb4dAKM2erWXQ",
+  "images": [
+    {
+      "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+      "height": 300,
+      "width": 300
+    }
+  ],
+  "name": "name2",
+  "release_date": "1981-12",
+  "release_date_precision": "year",
+  "type": "album",
+  "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ",
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "spotify6"
+      },
+      "href": "href2",
+      "id": "id0",
+      "name": "name0",
+      "type": "artist"
+    }
+  ],
+  "album_group": "compilation",
+  "restrictions": {
+    "reason": "explicit"
+  }
+}
+```
+
